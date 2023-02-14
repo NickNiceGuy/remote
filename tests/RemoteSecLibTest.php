@@ -1,10 +1,11 @@
 <?php
 
 use Mockery as m;
+use PHPUnit\Framework\TestCase;
 
-class RemoteSecLibGatewayTest extends PHPUnit_Framework_TestCase
+class RemoteSecLibTest extends TestCase
 {
-    public function tearDown()
+    public function tearDown(): void
     {
         m::close();
     }
@@ -81,6 +82,7 @@ class RemoteSecLibGatewayTest extends PHPUnit_Framework_TestCase
         $key->shouldReceive('loadKey')->once()->with('keystuff');
         $gateway->getConnection()->shouldReceive('login')->with('taylor', $key);
         $gateway->connect('taylor');
+        $this->assertTrue(true);
     }
 
     public function testKeyTextCanBeSetManually()
@@ -98,6 +100,7 @@ class RemoteSecLibGatewayTest extends PHPUnit_Framework_TestCase
         $key->shouldReceive('loadKey')->once()->with('keystuff');
         $gateway->getConnection()->shouldReceive('login')->with('taylor', $key);
         $gateway->connect('taylor');
+        $this->assertTrue(true);
     }
 
     public function getGateway($host = '127.0.0.1:22')
